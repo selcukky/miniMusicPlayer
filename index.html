@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <title>MiniMusicPlayer</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+  </head>
+  <body>
+    <audio id="player"></audio>
+
+    <!-- Top: Player (container) -->
+    <div class="container">
+      <div class="disk">
+        <div class="cover-wrapper">
+          <div id="cover" class="cover"></div>
+          <div class="circle"></div>
+        </div>
+        <div class="controls">
+          <i id="prev" class="prev-btn fa-solid fa-backward"></i>
+          <i id="play" class="play-btn fa-solid fa-play"></i>
+          <i id="next" class="next-btn fa-solid fa-forward"></i>
+        </div>
+        <div class="player-controls-extra">
+          <button id="btn-shuffle" title="Karıştır">
+            <i class="fa-solid fa-shuffle"></i>
+          </button>
+          <button id="btn-repeat" title="Tekrar">
+            <i class="fa-solid fa-repeat"></i>
+          </button>
+        </div>
+      </div>
+
+      <div class="song-info">
+        <div class="artist-name" id="current-artist">name</div>
+        <div class="song-name" id="current-song">song name</div>
+        <div class="progress-bar">
+          <div class="fill-bar"></div>
+        </div>
+        <div class="time">
+          <span id="current-time">0:00</span> -
+          <span id="total-time">0:00</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- File upload section -->
+    <div class="file-uploader">
+      <span class="file-name">Hiçbir dosya seçilmedi</span>
+      <label class="btn" for="audio-file">Dosya Seç</label>
+      <input id="audio-file" type="file" accept="audio/*" multiple />
+    </div>
+
+    <!-- Playlist controls -->
+    <!-- Playlist controls moved into player container (see .disk) -->
+
+    <!-- Playlist panel -->
+    <div class="playlist-panel">
+      <div class="playlist-header">Oynatma Listesi</div>
+      <div class="playlist-actions">
+        <button id="share-playlist" title="Paylaş">Paylaş</button>
+        <button id="export-zip" title="İndir .zip">İndir .zip</button>
+        <label class="import-label" for="import-playlist-file">İçe Aktar</label>
+        <input
+          id="import-playlist-file"
+          type="file"
+          accept=".json,application/json,.zip,application/zip"
+          style="display: none"
+        />
+      </div>
+      <ul class="playlist" aria-label="Playlist">
+        <!-- Liste JS tarafından doldurulacak -->
+      </ul>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
